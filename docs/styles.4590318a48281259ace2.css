@@ -1,0 +1,1 @@
+html{background-color:#136;color:#eee;font-size:20px;font-family:Roboto,sans-serif}body{width:60%;margin:auto}*{box-sizing:border-box}button{background-color:#3a3;color:#333;cursor:pointer}button:disabled{opacity:.5}button:focus{background-color:#3f3}button,input{height:2.5rem;font-size:1em;outline:none;border:0}label{display:block}.text-center{text-align:center}
