@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Query, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AbstractControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GameService } from 'src/app/services/game.service';
 
@@ -8,6 +9,7 @@ import { GameService } from 'src/app/services/game.service';
   styleUrls: ['./rounds.component.scss']
 })
 export class RoundsComponent implements OnInit {
+  @ViewChildren('scoreInputs') scoreInputs: QueryList<ElementRef>;
 
   public players = [];
   public rounds = [];
@@ -39,18 +41,15 @@ export class RoundsComponent implements OnInit {
     return this.rounds.length === index + 1;
   }
 
-  addRound() {
+  addRound(f: NgForm) {
     this.gameService.addRound(this.scores);
 
-    // if (this.gameService.isOver) {
-    //   this.result = `${player.name} sos LOSER!!!`;
-    // }
-
+    // Clean up scores info.
     this.scores = {};
 
-    // (this.$refs.addRoundForm as HTMLFormElement).reset();
-
-    // (this.$refs.playerScore as HTMLInputElement[])[0].focus();
+    // Reset UI controls.
+    f.reset();
+    this.scoreInputs.first.nativeElement.focus()
   }
 
   resetGame() {

@@ -13,23 +13,24 @@
           *ngFor="let round of rounds; index as i">
           <div
             class="rounds-scores"
-            [ngClass]="{ 'is-current-round': isLastRound(i), 'is-current-hand': round.hand === i }"
-            *ngFor="let player of players; index as i"
+            [ngClass]="{ 'is-current-round': isLastRound(i), 'is-current-hand': round.hand === j }"
+            *ngFor="let player of players; index as j"
           >{{ round.playersData[player.name] }}</div>
         </div>
   
         <form
-          (ngSubmit)="addRound()" 
+          (ngSubmit)="addRound(f)" 
           #f="ngForm"
           *ngIf="!isGameOver() && isGameStarted()">
 
           <div
               class="rounds-inputs">
               <input
+                #scoreInputs
                 *ngFor="let player of players; index as i"
                 [tabindex]="i + 1"
                 type="number"
-                [name]="'score' + i+1"
+                [name]="'score' + i"
                 required
                 class="input add-score-input"
                 [(ngModel)]="scores[player.name]"
@@ -49,6 +50,6 @@
       <div class="rounds-footer">
           <h3 class="text-center" *ngIf="isGameOver()">Juego Terminado!!</h3>
           <div class="rounds-actions">
-            <button class="" (click)="resetGame()">Jugar de nuevo</button>
+            <button (click)="resetGame()">Jugar de nuevo</button>
           </div>
       </div>
