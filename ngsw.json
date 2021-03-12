@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1615569274883,
+  "index": "/ng-scorepad/#/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/ng-scorepad/#/favicon.ico",
+        "/ng-scorepad/#/index.html",
+        "/ng-scorepad/#/main.296efa633ae516f5d8b7.js",
+        "/ng-scorepad/#/manifest.webmanifest",
+        "/ng-scorepad/#/polyfills.00096ed7d93ed26ee6df.js",
+        "/ng-scorepad/#/runtime.7b63b9fd40098a2e8207.js",
+        "/ng-scorepad/#/styles.4590318a48281259ace2.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/ng-scorepad/#/assets/icons/icon-128x128.png",
+        "/ng-scorepad/#/assets/icons/icon-144x144.png",
+        "/ng-scorepad/#/assets/icons/icon-152x152.png",
+        "/ng-scorepad/#/assets/icons/icon-192x192.png",
+        "/ng-scorepad/#/assets/icons/icon-384x384.png",
+        "/ng-scorepad/#/assets/icons/icon-512x512.png",
+        "/ng-scorepad/#/assets/icons/icon-72x72.png",
+        "/ng-scorepad/#/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/ng-scorepad/#/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/ng-scorepad/#/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/ng-scorepad/#/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/ng-scorepad/#/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/ng-scorepad/#/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/ng-scorepad/#/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/ng-scorepad/#/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/ng-scorepad/#/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/ng-scorepad/#/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/ng-scorepad/#/index.html": "1fd2aacab3e321e6d7b9f1eb45aa9413bffcf1b4",
+    "/ng-scorepad/#/main.296efa633ae516f5d8b7.js": "601da3dc3d23994dae04aa465e5d40346fee5a92",
+    "/ng-scorepad/#/manifest.webmanifest": "da6956b88050aa44445b1aaf1d5c8bb826e1f792",
+    "/ng-scorepad/#/polyfills.00096ed7d93ed26ee6df.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
+    "/ng-scorepad/#/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/ng-scorepad/#/styles.4590318a48281259ace2.css": "d2fc596556caf124c242f20eb3e9844e827c3202"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
