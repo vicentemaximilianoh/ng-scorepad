@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewGameComponent } from './components/new-game/new-game.component';
 import { SetupGameComponent } from './components/setup-game/setup-game.component';
+import { RoundsComponent } from './components/rounds/rounds.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewGameComponent,
-    SetupGameComponent
+    SetupGameComponent,
+    RoundsComponent
   ],
   imports: [
     AppRoutingModule,

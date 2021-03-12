@@ -1,0 +1,59 @@
+    <!-- Rounds -->
+    <div class="rounds">
+        <div class="rounds-players">
+          <div *ngFor="let player of players">
+            <h2>{{ player.name }}</h2>
+          </div>
+        </div>
+  
+        <hr *ngIf="!isGameOver() && isGameStarted()" />
+  
+        <div 
+          class="rounds-scores" 
+          *ngFor="let round of rounds; index as i">
+          <div
+            class="rounds-scores"
+            [ngClass]="{ highlighted: isLastRound(i) }"
+            *ngFor="let player of players"
+          >{{ round.playersData[player.name] }}</div>
+        </div>
+  
+        <!--div class="flex" v-if="!isGameOver && hasGameStarted"-->
+        <form
+          (ngSubmit)="addRound()" 
+          *ngIf="!isGameOver() && isGameStarted()">
+
+          <div
+              class="rounds-inputs">
+              <input
+                *ngFor="let player of players; index as i"
+                [tabindex]="i + 1"
+                type="number"
+                [name]="'score' + i+1"
+                required
+                class="input add-score-input"
+                [(ngModel)]="scores[player.name]"
+              />
+          </div>
+  
+          <button 
+            type="submit"
+            style="width: 100%;">
+            Proxima Ronda</button>
+        </form>
+  
+        <!--div class="flex">
+          <div v-for="player in players" v-bind:key="player.name">{{ player.score }}</div>
+        </div-->
+  
+        <!--/div-->
+      </div>
+  
+      <div class="scorepad-footer" *ngIf="isGameOver">
+        <div class="scorepad-result flex">
+          <h1>{{ result }}</h1>
+        </div>
+        <div class="flex">
+          <button class="btn" (click)="resetGame()">Jugar de nuevo</button>
+        </div>
+      </div>

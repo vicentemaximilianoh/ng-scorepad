@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from 'src/app/services/game.service';
 
 @Component({
@@ -11,7 +12,11 @@ export class SetupGameComponent implements OnInit {
   game: {};
   formGroup: FormGroup;
 
-  constructor(public gameService: GameService) { }
+  constructor(
+    public gameService: GameService, 
+    public router: Router, 
+    public route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -27,6 +32,7 @@ export class SetupGameComponent implements OnInit {
     });
 
     // Go to game rounds route
+    this.router.navigate(['rounds']);
   }
 
 }
