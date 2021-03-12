@@ -26,6 +26,7 @@ export class SetupGameComponent implements OnInit {
   }
 
   setupGame() {
+    console.log(this.formGroup);
     this.gameService.startGame({
       totalLimit: this.formGroup.value.totalLimit,
       discountScore: this.formGroup.value.discountScore
