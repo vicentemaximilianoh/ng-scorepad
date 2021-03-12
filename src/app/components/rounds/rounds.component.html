@@ -12,10 +12,12 @@
           class="rounds-scores" 
           *ngFor="let round of rounds; index as i">
           <div
-            class="rounds-scores"
-            [ngClass]="{ 'is-current-round': isLastRound(i), 'is-current-hand': round.hand === j }"
-            *ngFor="let player of players; index as j"
-          >{{ round.playersData[player.name] }}</div>
+            class="rounds-scores-item"
+            *ngFor="let player of players; index as j">
+            <span [ngClass]="{ 'is-current-round': isLastRound(i), 'is-current-hand': round.hand === j }">
+              {{ round.playersData[player.name] }}
+            </span>
+          </div>
         </div>
   
         <form
@@ -28,6 +30,7 @@
               <input
                 #scoreInputs
                 *ngFor="let player of players; index as i"
+                [disabled]="player.isLoser"
                 [tabindex]="i + 1"
                 type="number"
                 [name]="'score' + i"

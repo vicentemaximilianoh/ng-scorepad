@@ -11,6 +11,7 @@ export class GameService {
 
   private totalLimit;
   private discountScore;
+  private oneLoserMode;
   private started = false;
   private over = false;
 
@@ -32,6 +33,14 @@ export class GameService {
     this.started = val;
   }
 
+  get isOneLoserMode(): boolean {
+    return this.oneLoserMode;
+  }
+
+  set isOneLoserMode(val: boolean) {
+    this.oneLoserMode = val;
+  }
+
   getPlayers() {
     return this.players;
   }
@@ -45,7 +54,7 @@ export class GameService {
       name: playerName,
       score: 0,
       rounds: [],
-      hasLost: false
+      isLoser: false
     });
   }
 
@@ -64,18 +73,18 @@ export class GameService {
 
       round.playersData[player.name] = player.score;
 
-      if (player.score > this.totalLimit) {
-        player.loser = true;
-        this.isOver = true;
-      }
     });
 
     this.rounds.push(round);
+
+    this.checkLoserPlayers();
+    this.calculateIsGameOver();
   }
 
   startGame(settings) {
     this.totalLimit = settings.totalLimit;
     this.discountScore = settings.discountScore;
+    this.oneLoserMode = settings.oneLoserMode;
     this.started = true;
     this.over = false;
   }
@@ -91,12 +100,52 @@ export class GameService {
     this.discountScore = undefined;
   }
 
-  private calculateRoundHand(): number {
+  private calculateRoundHand(): void {
+    let hand;
     if (this.currentHand === undefined || (this.currentHand+1) === this.players.length) {
-      this.currentHand = 0;
+      hand = this.getFirstActivePlayerIndex();
     } else {
-      this.currentHand+=1;
+      hand=this.currentHand+1;
     }
-    return this.currentHand;
+
+    // If selected hand is an inactive (loser) player, then look for next one.
+    while(this.players[hand].isLoser) {
+      this.calculateRoundHand();
+    }
+    this.currentHand = hand;
   }
+
+  private checkLoserPlayers() {
+    this.players.forEach((p) => {
+      if (p.score > this.totalLimit) {
+        p.isLoser = true;
+      }
+    })
+  }
+
+  public getFirstActivePlayerIndex() {
+    return this.players.findIndex((p) => !p.isLoser);
+  }
+
+  private getActivePlayers() {
+    return this.players.filter((p) => !p.isLoser);
+  }
+
+  private getLoserPlayers() {
+    return this.players.filter((p) => p.isLoser);
+  }
+
+  private calculateIsGameOver() {
+    // End game if:
+    // - one loser mode is enabled and loser player is at least one.
+    // - one loser mode is disabled, then check loser players quantity is equal or just one NOT loser player.
+    const loserPlayers = this.getLoserPlayers().length;
+
+    if ((this.oneLoserMode && loserPlayers >= 1) || 
+      (!this.oneLoserMode && (loserPlayers >= this.players.length-1))) {
+        // player.isLoser = true;
+        this.isOver = true;
+      }
+  }
+
 }

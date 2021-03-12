@@ -24,6 +24,11 @@
     margin: .5rem 0;
 }
 
+.rounds-scores-item {
+  flex-grow: 1;
+  text-align: center;
+}
+
 .rounds-footer {
     display: flex;
     flex-direction: column;

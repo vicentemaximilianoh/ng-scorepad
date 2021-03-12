@@ -21,7 +21,8 @@ export class SetupGameComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       'totalLimit': new FormControl(100, [Validators.min(100), Validators.max(1000)]),
-      'discountScore': new FormControl(false)
+      'discountScore': new FormControl(false),
+      'oneLoserMode': new FormControl(false)
     });
   }
 
@@ -29,7 +30,8 @@ export class SetupGameComponent implements OnInit {
     console.log(this.formGroup);
     this.gameService.startGame({
       totalLimit: this.formGroup.value.totalLimit,
-      discountScore: this.formGroup.value.discountScore
+      discountScore: this.formGroup.value.discountScore,
+      oneLoserMode: this.formGroup.value.oneLoserMode,
     });
 
     // Go to game rounds route

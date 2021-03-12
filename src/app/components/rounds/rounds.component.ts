@@ -49,7 +49,7 @@ export class RoundsComponent implements OnInit {
 
     // Reset UI controls.
     f.reset();
-    this.scoreInputs.first.nativeElement.focus()
+    this.scoreInputs.get(this.gameService.getFirstActivePlayerIndex()).nativeElement.focus()
   }
 
   resetGame() {
