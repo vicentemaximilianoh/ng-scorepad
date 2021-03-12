@@ -21,11 +21,6 @@ export class RoundsComponent implements OnInit {
   ngOnInit(): void {
     this.players = this.gameService.getPlayers();
     this.rounds = this.gameService.getRounds();
-
-    // Redirect to new game screen.
-    if (this.players.length === 0) {
-      this.router.navigate(['']);
-    }
   }
 
   isGameStarted() {
