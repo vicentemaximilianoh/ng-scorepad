@@ -1,0 +1,35 @@
+
+  <div class="new-game">
+    <!-- Add Players form -->
+    <div>
+        <h3>Jugadores</h3>
+        <form (submit)="addPlayer()" class="new-game-form">
+            <input
+                type="text"
+                name="playerName"
+                class="new-game-form-input"
+                [(ngModel)]="playerName"
+                required
+            />
+            <button 
+                type="submit" 
+                class="btn new-game-form-btn">
+                Agregar Jugador</button>
+        </form>
+    
+        <ul class="new-game-players">
+            <li 
+                *ngFor="let player of players"
+                class="new-game-players-item">{{player.name}}</li>
+        </ul>
+    </div>
+
+    <div class="new-game-actions">
+        <button
+        type="button"
+        (click)="goToSetupGame()"
+        class="btn new-game-start-btn"
+        [disabled]="players.length <= 1">
+        Configurar juego</button>
+    </div>
+  </div>

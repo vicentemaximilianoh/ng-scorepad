@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+$color-primary: #eee;
+$color-secondary: #33ff33;
+$color-third: #113366;
+$color-fourth: #333;
+
+$color-text: $color-primary;
+$color-button: $color-secondary;
+$color-button-text: $color-fourth;
+$color-bg: $color-third;
+
+html {
+    background-color: $color-bg;
+    color: $color-text;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 60%;
+    margin: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    background-color: $color-button;
+    color: $color-button-text;
+    cursor: pointer;
+}
+
+input, button {
+    height: 2.5rem;
+    font-size: 1em;
+    outline: none;
+    border: 0;
+}
