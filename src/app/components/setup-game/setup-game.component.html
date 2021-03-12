@@ -6,8 +6,10 @@
         class="setup-game-form" 
         [formGroup]="formGroup">
         <!--Total Limit-->
-        <label for="totalLimit">
-            <span>Limite: </span>
+        <label 
+            for="totalLimit"
+            class="setup-game-form-control">
+            <span class="setup-game-form-control-label">Limite: </span>
             <input 
                 type="number" 
                 formControlName="totalLimit"
@@ -18,12 +20,14 @@
         </label>
 
         <!--Vale -10?-->
-        <label for="discountScore">
-            <span>Vale -10?</span>
+        <label 
+            for="discountScore"
+            class="setup-game-form-control">
             <input 
                 type="checkbox" 
                 formControlName="discountScore"
                 name="discountScore"/>
+            <span class="setup-game-form-control-label">Vale -10?</span>
         </label>
 
         <button 

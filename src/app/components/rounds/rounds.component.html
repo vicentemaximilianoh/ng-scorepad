@@ -36,15 +36,19 @@
               />
           </div>
   
-          <button 
-            type="submit"
-            [disabled]="!f.valid">
-            Proxima Ronda</button>
+          <div class="rounds-actions">
+            <button 
+              type="submit"
+              [disabled]="!f.valid">
+              Proxima Ronda</button>
+            </div>
         </form>
 
       </div>
   
       <div class="rounds-footer">
           <h3 class="text-center" *ngIf="isGameOver()">Juego Terminado!!</h3>
-          <button class="btn" (click)="resetGame()">Jugar de nuevo</button>
+          <div class="rounds-actions">
+            <button class="" (click)="resetGame()">Jugar de nuevo</button>
+          </div>
       </div>

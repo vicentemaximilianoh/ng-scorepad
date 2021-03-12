@@ -86,7 +86,7 @@ export class GameService {
     this.players = [];
     this.rounds = [];
 
-    this.currentHand = 0;
+    this.currentHand = undefined;
     this.totalLimit = undefined;
     this.discountScore = undefined;
   }
