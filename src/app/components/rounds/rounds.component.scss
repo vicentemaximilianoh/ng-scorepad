@@ -22,3 +22,17 @@
     justify-content: space-around;
     margin: .5rem 0;
 }
+
+.rounds-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.is-current-round {
+    font-weight: bold;
+}
+
+.is-current-hand {
+    border-bottom: 1px solid #ccc;
+}

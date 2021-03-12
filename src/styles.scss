@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use "sass:color";
+
 $color-primary: #eee;
-$color-secondary: #33ff33;
+$color-secondary: #33aa33;
 $color-third: #113366;
 $color-fourth: #333;
 
@@ -30,6 +32,14 @@ button {
     background-color: $color-button;
     color: $color-button-text;
     cursor: pointer;
+}
+
+button:disabled {
+    opacity: .5;
+}
+
+button:focus {
+    background-color: #33ff33;
 }
 
 input, button {

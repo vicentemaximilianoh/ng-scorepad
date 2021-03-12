@@ -3,7 +3,10 @@
     <!-- Add Players form -->
     <div>
         <h3 class="text-center">Jugadores</h3>
-        <form (submit)="addPlayer()" class="new-game-form">
+        <form
+            #f="ngForm" 
+            (submit)="addPlayer()" 
+            class="new-game-form">
             <input
                 type="text"
                 name="playerName"
@@ -13,6 +16,7 @@
             />
             <button 
                 type="submit" 
+                [disabled]="!f.valid"
                 class="btn new-game-form-btn">
                 Agregar Jugador</button>
         </form>

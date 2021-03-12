@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from 'src/app/services/game.service';
 
@@ -20,7 +20,7 @@ export class SetupGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      'totalLimit': new FormControl(100),
+      'totalLimit': new FormControl(100, [Validators.min(100), Validators.max(1000)]),
       'discountScore': new FormControl(false)
     });
   }
