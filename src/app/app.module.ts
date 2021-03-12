@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NewGameComponent } from './components/new-game/new-game.component';
 import { SetupGameComponent } from './components/setup-game/setup-game.component';
 import { RoundsComponent } from './components/rounds/rounds.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { RoundsComponent } from './components/rounds/rounds.component';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
