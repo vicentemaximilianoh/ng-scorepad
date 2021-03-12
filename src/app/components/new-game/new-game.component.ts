@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-new-game',
@@ -9,24 +12,23 @@ export class NewGameComponent implements OnInit {
   players = [];
   playerName = '';
 
-  constructor() { }
+  constructor(
+    public gameService: GameService,
+    public router: Router,
+    public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.players = this.gameService.getPlayers();
   }
 
   addPlayer(): void {
-    this.players.push({
-      name: this.playerName,
-      score: 0,
-      rounds: [],
-      hasLost: false
-    });
+    this.gameService.addPlayer(this.playerName);
 
     this.playerName = '';
   }
 
   goToSetupGame() {
-
+    this.router.navigate(['setupGame'], { relativeTo: this.route });
   }
 
 

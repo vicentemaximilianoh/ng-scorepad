@@ -1,0 +1,27 @@
+<div class="setup-game">
+    <h3 class="text-center">Configuración del Juego</h3>
+    <form (ngSubmit)="setupGame()" class="setup-game-form" [formGroup]="formGroup">
+        <!--Total Limit-->
+        <label for="totalLimit">
+            <span>Limite: </span>
+            <input 
+                type="number" 
+                formControlName="totalLimit"
+                name="totalLimit" 
+                required
+                min="100" 
+                max="1000">
+        </label>
+
+        <!--Vale -10?-->
+        <label for="discountScore">
+            <span>Vale -10?</span>
+            <input 
+                type="checkbox" 
+                formControlName="discountScore"
+                name="discountScore"/>
+        </label>
+
+        <button type="submit">Comenzar Juego</button>
+    </form>
+</div>
