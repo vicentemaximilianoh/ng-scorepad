@@ -41,6 +41,12 @@ export class RoundsComponent implements OnInit {
     return this.rounds.length === index + 1;
   }
 
+  getAllowedMinValue() {
+    return this.gameService.isDiscountScoreAllowed ? 
+      this.gameService.DISCOUNT_SCORE : 
+      this.gameService.NO_SCORE;
+  }
+
   addRound(f: NgForm) {
     this.gameService.addRound(this.scores);
 

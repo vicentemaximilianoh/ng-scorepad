@@ -15,6 +15,13 @@ export class GameService {
   private started = false;
   private over = false;
 
+  private readonly INITIAL_SCORE = 0;
+  public readonly DEFAULT_TOTAL_SCORE = 100;
+  public readonly MIN_TOTAL_SCORE = 50;
+  public readonly MAX_TOTAL_SCORE = 500;
+  public readonly DISCOUNT_SCORE = -10;
+  public readonly NO_SCORE = 0;
+
   constructor() { }
 
   get isOver(): boolean {
@@ -41,6 +48,14 @@ export class GameService {
     this.oneLoserMode = val;
   }
 
+  get isDiscountScoreAllowed(): boolean {
+    return this.discountScore;
+  }
+
+  set isDiscountScoreAllowed(val: boolean) {
+    this.discountScore = val;
+  }
+
   getPlayers() {
     return this.players;
   }
@@ -52,7 +67,7 @@ export class GameService {
   addPlayer(playerName: string) {
     this.players.push({
       name: playerName,
-      score: 0,
+      score: this.INITIAL_SCORE,
       rounds: [],
       isLoser: false
     });

@@ -35,6 +35,7 @@
                 type="number"
                 [name]="'score' + i"
                 required
+                [min]="getAllowedMinValue()"
                 class="input add-score-input"
                 [(ngModel)]="scores[player.name]"
               />

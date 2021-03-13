@@ -20,7 +20,10 @@ export class SetupGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      'totalLimit': new FormControl(100, [Validators.min(100), Validators.max(1000)]),
+      'totalLimit': new FormControl(this.gameService.DEFAULT_TOTAL_SCORE, [
+        Validators.min(this.gameService.MIN_TOTAL_SCORE), 
+        Validators.max(this.gameService.MAX_TOTAL_SCORE)
+      ]),
       'discountScore': new FormControl(false),
       'oneLoserMode': new FormControl(false)
     });
